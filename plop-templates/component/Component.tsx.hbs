@@ -1,0 +1,8 @@
+import { Root } from './{{pascalCase name}}.elements'
+{{#if types}}
+import { {{pascalCase name}}Props } from './{{pascalCase name}}.types'
+{{/if}}
+
+export const {{pascalCase name}} = ({{#if types}}{}: {{pascalCase name}}Props{{/if}}) => {
+  return <Root>{{pascalCase name}}</Root>
+}
