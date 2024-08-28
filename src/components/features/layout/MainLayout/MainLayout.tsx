@@ -1,15 +1,19 @@
 'use client'
 
-import { AppNavigation } from '@features'
-import { ThemeSwitcher, LocaleSwitcher } from '@shared'
-
-import { Root } from './MainLayout.elements'
+import { Root, MainContainer, Content } from './MainLayout.elements'
 import { MainLayoutProps } from './MainLayout.types'
+import {HeaderWidget, SidebarWidget} from "@/components/widgets";
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
     return (
         <Root>
-            {children}
+            <SidebarWidget />
+            <MainContainer>
+                <HeaderWidget />
+                    <Content>
+                        {children}
+                    </Content>
+            </MainContainer>
         </Root>
     )
 }
