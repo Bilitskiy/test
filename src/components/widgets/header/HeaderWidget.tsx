@@ -1,8 +1,13 @@
-import {Root, BurgerButton} from './HeaderWidget.elements';
+import {useTheme} from "next-themes";
+
+import { HeaderContainer, BurgerButton } from './HeaderWidget.elements';
 import {HeaderWidgetProps} from "@/components/widgets/header/HeaderWidget.types";
 
 export const HeaderWidget = ({ triggerSidebar, isTriggered }: HeaderWidgetProps) => {
-    return <Root>
-        <BurgerButton isTriggered={isTriggered} onClick={triggerSidebar}/>
-    </Root>
+    const theme = useTheme();
+    const isDarkTheme = theme.theme === 'dark';
+
+    return <HeaderContainer isDarkTheme={isDarkTheme}>
+        <BurgerButton isDarkTheme={isDarkTheme} isTriggered={isTriggered} onClick={triggerSidebar}/>
+    </HeaderContainer>
 }

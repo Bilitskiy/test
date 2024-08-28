@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 import styled from 'styled-components'
 
-export const Sidebar = styled(motion.div)`
+export const Sidebar = styled(motion.div)<{ isDarkTheme: boolean }>`
   z-index: 10;
   position: absolute;
   min-height: 100vh;
@@ -10,7 +10,8 @@ export const Sidebar = styled(motion.div)`
   top: 0;
   flex-direction: column;
   gap: 10px;
-  background-color: red;
+  border-right: 1px solid;
+  border-color: ${({ isDarkTheme }) => (isDarkTheme ? 'white' : 'black')};
   @media (min-width: 1024px) {
     position: sticky;
   }

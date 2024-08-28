@@ -1,19 +1,22 @@
 import styled from 'styled-components'
 
-export const Root = styled.div`
+export const HeaderContainer = styled.div<{ isDarkTheme: boolean }>`
   min-height: 100px;
   max-height: 100px;
   position: sticky;
   top: 0;
-  background-color: green;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  border-bottom: 1px solid;
+  border-color: ${({ isDarkTheme }) => (isDarkTheme ? 'white' : 'black')};
   gap: 20px;
   padding: 20px;
-`
-export const BurgerButton = styled.button<{ isTriggered: boolean }>`
+  backdrop-filter: blur(5px);
+  background: ${({ isDarkTheme }) => (isDarkTheme ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)')};
+`;
+export const BurgerButton = styled.button<{ isTriggered: boolean, isDarkTheme: boolean }>`
   position: relative;
   width: 30px;
   height: 24px;
@@ -29,7 +32,7 @@ export const BurgerButton = styled.button<{ isTriggered: boolean }>`
     position: absolute;
     width: 100%;
     height: 4px;
-    background-color: #fff;
+    background-color: ${({ isDarkTheme }) => (isDarkTheme ? 'white' : 'black')};
     transition: all 0.3s ease;
   }
 

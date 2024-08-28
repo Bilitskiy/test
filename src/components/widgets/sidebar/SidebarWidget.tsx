@@ -1,13 +1,15 @@
 import {AnimatePresence} from "framer-motion";
+import { useEffect } from "react";
 
 import { Sidebar, Overlay } from './SidebarWidget.elements';
 import { sidebarAnimationConfig, overlayAnimationConfig } from './animationsConfig';
 import { SidebarWidgetProps } from "@/components/widgets/sidebar/SidebarWidget.types";
 import {useCheckMobileScreen} from "@hooks/useCheckMobileScreen";
-import {useEffect} from "react";
+import {useTheme} from "next-themes";
 
 export const SidebarWidget = ({ isOpened, setIsOpened }: SidebarWidgetProps) => {
 
+    const theme = useTheme();
     const isMobile = useCheckMobileScreen();
 
     useEffect(() => {
@@ -16,6 +18,7 @@ export const SidebarWidget = ({ isOpened, setIsOpened }: SidebarWidgetProps) => 
 
     return <AnimatePresence>
         {isOpened && <Sidebar
+            isDarkTheme={theme.theme === 'dark'}
             key={'sidebar'}
             animate={sidebarAnimationConfig.animate}
             exit={sidebarAnimationConfig.exit}
