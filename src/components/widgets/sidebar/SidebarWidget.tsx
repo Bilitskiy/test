@@ -1,36 +1,32 @@
-import { Root } from './SidebarWidget.elements';
+import {AnimatePresence} from "framer-motion";
 
-const sidebarVariants = {
-    animate: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            ease: 'linear',
-            duration: 0.1,
-            x: { duration: 0.1 },
-        },
-    },
-    initial: {
-        opacity: 1,
-        zIndex: 2,
-        x: '-100%',
-        transition: {
-            ease: 'linear',
-            duration: 0.1,
-        },
-    },
-    exit: {
-        opacity: 1,
-        x: '-100%',
-        transition: {
-            ease: 'linear',
-            duration: 0.1,
-        },
-    },
-};
+import { Sidebar, Overlay } from './SidebarWidget.elements';
+import { sidebarAnimationConfig, overlayAnimationConfig } from './animationsConfig';
+import { SidebarWidgetProps } from "@/components/widgets/sidebar/SidebarWidget.types";
+import {useCheckMobileScreen} from "@hooks/useCheckMobileScreen";
+import {useEffect} from "react";
 
-export const SidebarWidget = () => {
-    return  <Root>
+export const SidebarWidget = ({ isOpened, setIsOpened }: SidebarWidgetProps) => {
 
-    </Root>
+    const isMobile = useCheckMobileScreen();
+
+    useEffect(() => {
+        setIsOpened(!isMobile)
+    }, [isMobile]);
+
+    return <AnimatePresence>
+        {isOpened && <Sidebar
+            key={'sidebar'}
+            animate={sidebarAnimationConfig.animate}
+            exit={sidebarAnimationConfig.exit}
+            initial={sidebarAnimationConfig.initial}>
+        </Sidebar>}
+        {isOpened && isMobile && <Overlay
+            key={'overlay'}
+            onClick={() => setIsOpened(false)}
+            animate={overlayAnimationConfig.animate}
+            exit={overlayAnimationConfig.exit}
+            initial={overlayAnimationConfig.initial}>
+        </Overlay>}
+    </AnimatePresence>
 }
