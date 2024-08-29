@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div<{ isDarkTheme: boolean }>`
+export const HeaderContainer = styled.div<{ isLightTheme: boolean }>`
   min-height: 100px;
   max-height: 100px;
   position: sticky;
@@ -10,13 +10,13 @@ export const HeaderContainer = styled.div<{ isDarkTheme: boolean }>`
   align-items: center;
   flex-direction: row;
   border-bottom: 1px solid;
-  border-color: ${({ isDarkTheme }) => (isDarkTheme ? 'white' : 'black')};
+  border-color: ${({ isLightTheme }) => (isLightTheme ? 'black' : 'white')};
   gap: 20px;
   padding: 20px;
   backdrop-filter: blur(5px);
-  background: ${({ isDarkTheme }) => (isDarkTheme ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)')};
+  background: ${({ isLightTheme }) => (isLightTheme ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)')};
 `;
-export const BurgerButton = styled.button<{ isTriggered: boolean, isDarkTheme: boolean }>`
+export const BurgerButton = styled.button<{ isTriggered: boolean, isLightTheme: boolean }>`
   position: relative;
   width: 30px;
   height: 24px;
@@ -32,7 +32,7 @@ export const BurgerButton = styled.button<{ isTriggered: boolean, isDarkTheme: b
     position: absolute;
     width: 100%;
     height: 4px;
-    background-color: ${({ isDarkTheme }) => (isDarkTheme ? 'white' : 'black')};
+    background-color: ${({ isLightTheme }) => (isLightTheme ? 'black' : 'white')};
     transition: all 0.3s ease;
   }
 

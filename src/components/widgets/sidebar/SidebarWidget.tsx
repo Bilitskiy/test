@@ -18,7 +18,7 @@ export const SidebarWidget = ({ isOpened, setIsOpened }: SidebarWidgetProps) => 
 
     return <AnimatePresence>
         {isOpened && <Sidebar
-            isDarkTheme={theme.theme === 'dark'}
+            isLightTheme={theme.theme === 'light'}
             key={'sidebar'}
             animate={sidebarAnimationConfig.animate}
             exit={sidebarAnimationConfig.exit}

@@ -5,9 +5,9 @@ import {HeaderWidgetProps} from "@/components/widgets/header/HeaderWidget.types"
 
 export const HeaderWidget = ({ triggerSidebar, isTriggered }: HeaderWidgetProps) => {
     const theme = useTheme();
-    const isDarkTheme = theme.theme === 'dark';
+    const isLightTheme = theme.theme === 'light';
 
-    return <HeaderContainer isDarkTheme={isDarkTheme}>
-        <BurgerButton isDarkTheme={isDarkTheme} isTriggered={isTriggered} onClick={triggerSidebar}/>
+    return <HeaderContainer isLightTheme={isLightTheme}>
+        <BurgerButton isLightTheme={isLightTheme} isTriggered={isTriggered} onClick={triggerSidebar}/>
     </HeaderContainer>
 }
