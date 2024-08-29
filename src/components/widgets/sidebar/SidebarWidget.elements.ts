@@ -11,6 +11,7 @@ export const Sidebar = styled(motion.div)<{ isLightTheme: boolean }>`
   flex-direction: column;
   gap: 10px;
   border-right: 1px solid;
+  background-color: ${({ isLightTheme }) => (isLightTheme ? 'white' : 'black')};;
   border-color: ${({ isLightTheme }) => (isLightTheme ? 'black' : 'white')};
   @media (min-width: 1024px) {
     position: sticky;
