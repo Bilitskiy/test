@@ -2,7 +2,7 @@
 
 import { Root, MainContainer, Content } from './MainLayout.elements'
 import { MainLayoutProps } from './MainLayout.types'
-import {HeaderWidget, SidebarWidget} from "@/components/widgets";
+import {HeaderWidget, SidebarWidget} from "@/components/features";
 import {useState} from "react";
 
 export const MainLayout = ({ children }: MainLayoutProps) => {

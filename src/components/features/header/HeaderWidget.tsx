@@ -1,7 +1,8 @@
+'use client'
 import {useTheme} from "next-themes";
 
 import { HeaderContainer, BurgerButton } from './HeaderWidget.elements';
-import {HeaderWidgetProps} from "@/components/widgets/header/HeaderWidget.types";
+import {HeaderWidgetProps} from "./HeaderWidget.types";
 
 export const HeaderWidget = ({ triggerSidebar, isTriggered }: HeaderWidgetProps) => {
     const theme = useTheme();

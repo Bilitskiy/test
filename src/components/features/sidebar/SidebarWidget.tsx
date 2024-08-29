@@ -1,9 +1,10 @@
+'use client'
 import {AnimatePresence} from "framer-motion";
 import { useEffect } from "react";
 
 import { Sidebar, Overlay } from './SidebarWidget.elements';
-import { sidebarAnimationConfig, overlayAnimationConfig } from './animationsConfig';
-import { SidebarWidgetProps } from "@/components/widgets/sidebar/SidebarWidget.types";
+import { sidebarAnimationConfig, overlayAnimationConfig } from './SidebarWidget.constants';
+import { SidebarWidgetProps } from "./SidebarWidget.types";
 import {useCheckMobileScreen} from "@hooks/useCheckMobileScreen";
 import {useTheme} from "next-themes";
 
